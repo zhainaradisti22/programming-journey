@@ -1,0 +1,7 @@
+D:\Zhaina Dwiriska xpplg2\Tugas 1-7 fungsi perkalian\bin\Debug\Tugas 1-7 fungsi perkalian.exe.config
+D:\Zhaina Dwiriska xpplg2\Tugas 1-7 fungsi perkalian\bin\Debug\Tugas 1-7 fungsi perkalian.exe
+D:\Zhaina Dwiriska xpplg2\Tugas 1-7 fungsi perkalian\bin\Debug\Tugas 1-7 fungsi perkalian.pdb
+D:\Zhaina Dwiriska xpplg2\Tugas 1-7 fungsi perkalian\obj\Debug\Tugas 1-7 fungsi perkalian.csproj.AssemblyReference.cache
+D:\Zhaina Dwiriska xpplg2\Tugas 1-7 fungsi perkalian\obj\Debug\Tugas 1-7 fungsi perkalian.csproj.CoreCompileInputs.cache
+D:\Zhaina Dwiriska xpplg2\Tugas 1-7 fungsi perkalian\obj\Debug\Tugas 1-7 fungsi perkalian.exe
+D:\Zhaina Dwiriska xpplg2\Tugas 1-7 fungsi perkalian\obj\Debug\Tugas 1-7 fungsi perkalian.pdb
