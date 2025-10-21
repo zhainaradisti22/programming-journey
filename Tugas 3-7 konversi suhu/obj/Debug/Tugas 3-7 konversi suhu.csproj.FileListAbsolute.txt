@@ -1,0 +1,7 @@
+D:\Zhaina Dwiriska xpplg2\Tugas 3-7 konversi suhu\bin\Debug\Tugas 3-7 konversi suhu.exe.config
+D:\Zhaina Dwiriska xpplg2\Tugas 3-7 konversi suhu\bin\Debug\Tugas 3-7 konversi suhu.exe
+D:\Zhaina Dwiriska xpplg2\Tugas 3-7 konversi suhu\bin\Debug\Tugas 3-7 konversi suhu.pdb
+D:\Zhaina Dwiriska xpplg2\Tugas 3-7 konversi suhu\obj\Debug\Tugas 3-7 konversi suhu.csproj.AssemblyReference.cache
+D:\Zhaina Dwiriska xpplg2\Tugas 3-7 konversi suhu\obj\Debug\Tugas 3-7 konversi suhu.csproj.CoreCompileInputs.cache
+D:\Zhaina Dwiriska xpplg2\Tugas 3-7 konversi suhu\obj\Debug\Tugas 3-7 konversi suhu.exe
+D:\Zhaina Dwiriska xpplg2\Tugas 3-7 konversi suhu\obj\Debug\Tugas 3-7 konversi suhu.pdb
