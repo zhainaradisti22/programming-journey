@@ -1,0 +1,7 @@
+D:\Zhaina Dwiriska xpplg2\Tugas 2-7 fungsi rata-rata\bin\Debug\Tugas 2-7 fungsi rata-rata.exe.config
+D:\Zhaina Dwiriska xpplg2\Tugas 2-7 fungsi rata-rata\bin\Debug\Tugas 2-7 fungsi rata-rata.exe
+D:\Zhaina Dwiriska xpplg2\Tugas 2-7 fungsi rata-rata\bin\Debug\Tugas 2-7 fungsi rata-rata.pdb
+D:\Zhaina Dwiriska xpplg2\Tugas 2-7 fungsi rata-rata\obj\Debug\Tugas 2-7 fungsi rata-rata.csproj.AssemblyReference.cache
+D:\Zhaina Dwiriska xpplg2\Tugas 2-7 fungsi rata-rata\obj\Debug\Tugas 2-7 fungsi rata-rata.csproj.CoreCompileInputs.cache
+D:\Zhaina Dwiriska xpplg2\Tugas 2-7 fungsi rata-rata\obj\Debug\Tugas 2-7 fungsi rata-rata.exe
+D:\Zhaina Dwiriska xpplg2\Tugas 2-7 fungsi rata-rata\obj\Debug\Tugas 2-7 fungsi rata-rata.pdb
