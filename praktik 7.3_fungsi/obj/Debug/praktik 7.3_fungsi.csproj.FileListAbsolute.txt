@@ -1,0 +1,7 @@
+D:\Zhaina Dwiriska xpplg2\praktik 7.3_fungsi\bin\Debug\praktik 7.3_fungsi.exe.config
+D:\Zhaina Dwiriska xpplg2\praktik 7.3_fungsi\bin\Debug\praktik 7.3_fungsi.exe
+D:\Zhaina Dwiriska xpplg2\praktik 7.3_fungsi\bin\Debug\praktik 7.3_fungsi.pdb
+D:\Zhaina Dwiriska xpplg2\praktik 7.3_fungsi\obj\Debug\praktik 7.3_fungsi.csproj.AssemblyReference.cache
+D:\Zhaina Dwiriska xpplg2\praktik 7.3_fungsi\obj\Debug\praktik 7.3_fungsi.csproj.CoreCompileInputs.cache
+D:\Zhaina Dwiriska xpplg2\praktik 7.3_fungsi\obj\Debug\praktik 7.3_fungsi.exe
+D:\Zhaina Dwiriska xpplg2\praktik 7.3_fungsi\obj\Debug\praktik 7.3_fungsi.pdb
