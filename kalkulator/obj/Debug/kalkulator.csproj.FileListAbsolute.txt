@@ -1,0 +1,7 @@
+D:\Zhaina Dwiriska xpplg2\kalkulator\obj\Debug\kalkulator.csproj.AssemblyReference.cache
+D:\Zhaina Dwiriska xpplg2\kalkulator\obj\Debug\kalkulator.csproj.CoreCompileInputs.cache
+D:\Zhaina Dwiriska xpplg2\kalkulator\bin\Debug\kalkulator.exe.config
+D:\Zhaina Dwiriska xpplg2\kalkulator\bin\Debug\kalkulator.exe
+D:\Zhaina Dwiriska xpplg2\kalkulator\bin\Debug\kalkulator.pdb
+D:\Zhaina Dwiriska xpplg2\kalkulator\obj\Debug\kalkulator.exe
+D:\Zhaina Dwiriska xpplg2\kalkulator\obj\Debug\kalkulator.pdb
