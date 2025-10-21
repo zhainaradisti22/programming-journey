@@ -1,0 +1,7 @@
+D:\Zhaina Dwiriska xpplg2\fungsi_hitung_luas\bin\Debug\fungsi_hitung_luas.exe.config
+D:\Zhaina Dwiriska xpplg2\fungsi_hitung_luas\bin\Debug\fungsi_hitung_luas.exe
+D:\Zhaina Dwiriska xpplg2\fungsi_hitung_luas\bin\Debug\fungsi_hitung_luas.pdb
+D:\Zhaina Dwiriska xpplg2\fungsi_hitung_luas\obj\Debug\fungsi_hitung_luas.csproj.AssemblyReference.cache
+D:\Zhaina Dwiriska xpplg2\fungsi_hitung_luas\obj\Debug\fungsi_hitung_luas.csproj.CoreCompileInputs.cache
+D:\Zhaina Dwiriska xpplg2\fungsi_hitung_luas\obj\Debug\fungsi_hitung_luas.exe
+D:\Zhaina Dwiriska xpplg2\fungsi_hitung_luas\obj\Debug\fungsi_hitung_luas.pdb
