@@ -1,0 +1,7 @@
+D:\Yulmenina xpplg2\tugas 2_while\bin\Debug\tugas 2_while.exe.config
+D:\Yulmenina xpplg2\tugas 2_while\bin\Debug\tugas 2_while.exe
+D:\Yulmenina xpplg2\tugas 2_while\bin\Debug\tugas 2_while.pdb
+D:\Yulmenina xpplg2\tugas 2_while\obj\Debug\tugas 2_while.csproj.AssemblyReference.cache
+D:\Yulmenina xpplg2\tugas 2_while\obj\Debug\tugas 2_while.csproj.CoreCompileInputs.cache
+D:\Yulmenina xpplg2\tugas 2_while\obj\Debug\tugas 2_while.exe
+D:\Yulmenina xpplg2\tugas 2_while\obj\Debug\tugas 2_while.pdb
