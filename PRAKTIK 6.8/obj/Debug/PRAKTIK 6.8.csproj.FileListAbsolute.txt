@@ -1,0 +1,7 @@
+D:\Yulmenina xpplg2\PRAKTIK 6.8\bin\Debug\PRAKTIK 6.8.exe.config
+D:\Yulmenina xpplg2\PRAKTIK 6.8\bin\Debug\PRAKTIK 6.8.exe
+D:\Yulmenina xpplg2\PRAKTIK 6.8\bin\Debug\PRAKTIK 6.8.pdb
+D:\Yulmenina xpplg2\PRAKTIK 6.8\obj\Debug\PRAKTIK 6.8.csproj.AssemblyReference.cache
+D:\Yulmenina xpplg2\PRAKTIK 6.8\obj\Debug\PRAKTIK 6.8.csproj.CoreCompileInputs.cache
+D:\Yulmenina xpplg2\PRAKTIK 6.8\obj\Debug\PRAKTIK 6.8.exe
+D:\Yulmenina xpplg2\PRAKTIK 6.8\obj\Debug\PRAKTIK 6.8.pdb
