@@ -1,0 +1,8 @@
+D:\Yulmenina xpplg2\tugas1_for_perkalian\bin\Debug\tugas1_for_perkalian.exe.config
+D:\Yulmenina xpplg2\tugas1_for_perkalian\bin\Debug\tugas1_for_perkalian.exe
+D:\Yulmenina xpplg2\tugas1_for_perkalian\bin\Debug\tugas1_for_perkalian.pdb
+D:\Yulmenina xpplg2\tugas1_for_perkalian\obj\Debug\tugas1_for_perkalian.csproj.AssemblyReference.cache
+D:\Yulmenina xpplg2\tugas1_for_perkalian\obj\Debug\tugas1_for_perkalian.csproj.CoreCompileInputs.cache
+D:\Yulmenina xpplg2\tugas1_for_perkalian\obj\Debug\tugas1_for_perkalian.exe
+D:\Yulmenina xpplg2\tugas1_for_perkalian\obj\Debug\tugas1_for_perkalian.pdb
+D:\Yulmenina xpplg2\tugas1_for_perkalian\obj\Debug\tugas1_for_perkalian.exe.config
