@@ -1,0 +1,8 @@
+D:\Zhaina Dwiriska xpplg2\praktik 6.5_yulmenina\bin\Debug\praktik 6.5_yulmenina.exe.config
+D:\Zhaina Dwiriska xpplg2\praktik 6.5_yulmenina\bin\Debug\praktik 6.5_yulmenina.exe
+D:\Zhaina Dwiriska xpplg2\praktik 6.5_yulmenina\bin\Debug\praktik 6.5_yulmenina.pdb
+D:\Zhaina Dwiriska xpplg2\praktik 6.5_yulmenina\obj\Debug\praktik 6.5_yulmenina.csproj.AssemblyReference.cache
+D:\Zhaina Dwiriska xpplg2\praktik 6.5_yulmenina\obj\Debug\praktik 6.5_yulmenina.csproj.CoreCompileInputs.cache
+D:\Zhaina Dwiriska xpplg2\praktik 6.5_yulmenina\obj\Debug\praktik 6.5_yulmenina.exe
+D:\Zhaina Dwiriska xpplg2\praktik 6.5_yulmenina\obj\Debug\praktik 6.5_yulmenina.pdb
+D:\Zhaina Dwiriska xpplg2\praktik 6.5_yulmenina\obj\Debug\praktik 6.5_yulmenina.exe.config
