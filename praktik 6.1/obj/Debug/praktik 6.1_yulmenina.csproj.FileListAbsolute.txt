@@ -1,0 +1,7 @@
+D:\Yulmenina xpplg2\praktik 6.1_yulmenina\bin\Debug\praktik 6.1_yulmenina.exe.config
+D:\Yulmenina xpplg2\praktik 6.1_yulmenina\bin\Debug\praktik 6.1_yulmenina.exe
+D:\Yulmenina xpplg2\praktik 6.1_yulmenina\bin\Debug\praktik 6.1_yulmenina.pdb
+D:\Yulmenina xpplg2\praktik 6.1_yulmenina\obj\Debug\praktik 6.1_yulmenina.csproj.AssemblyReference.cache
+D:\Yulmenina xpplg2\praktik 6.1_yulmenina\obj\Debug\praktik 6.1_yulmenina.csproj.CoreCompileInputs.cache
+D:\Yulmenina xpplg2\praktik 6.1_yulmenina\obj\Debug\praktik 6.1_yulmenina.exe
+D:\Yulmenina xpplg2\praktik 6.1_yulmenina\obj\Debug\praktik 6.1_yulmenina.pdb
