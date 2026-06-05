@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FredoOo Blooms</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ==================== CSS ==================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; color: #5a3e3e; line-height: 1.6; background-color: #fff5f8; }
+body.beranda-active { background: linear-gradient(135deg, #fff0f5 0%, #f3e5f5 50%, #e1f5fe 100%) !important; background-attachment: fixed !important; min-height: 100vh; }
+a { text-decoration: none; color: inherit; }
+
+/* Navbar */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+.navbar .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: bold; color: #c2185b; }
+.navbar .nav-links a, .navbar .nav-links button { margin-left: 25px; font-weight: 500; color: #666; transition: color 0.3s; background: none; border: none; font-size: 16px; cursor: pointer; font-family: 'Poppins', sans-serif; }
+.navbar .nav-links a:hover, .navbar .nav-links button:hover { color: #c2185b; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 50px 5%; }
+.btn-primary { display: inline-block; background-color: #c2185b; color: white; padding: 12px 24px; border: none; border-radius: 50px; font-size: 15px; cursor: pointer; font-weight: 600; transition: all 0.3s; text-align: center; }
+.btn-primary:hover { background-color: #a0134a; transform: translateY(-2px); }
+
+.page { display: none; }
+.page.active { display: block; }
+
+/* BERANDA */
+.hero { display: flex; align-items: center; gap: 60px; }
+.hero-text { flex: 1; }
+.hero-text h1 { font-family: 'Playfair Display', serif; font-size: 48px; color: #880e4f; margin-bottom: 20px; line-height: 1.2; }
+.hero-text p { font-size: 17px; margin-bottom: 30px; color: #7a5c5c; line-height: 1.8; }
+.hero-image { flex: 1; display: flex; justify-content: center; }
+.spiral-frame { max-width: 400px; padding: 20px 20px 20px 45px; background-color: #ffffff; border: 10px solid #fce4ec; border-radius: 15px; box-shadow: 0 15px 40px rgba(194, 24, 91, 0.15); box-sizing: border-box; background-image: radial-gradient(circle at 22px center, #ffffff 6px, #c2185b 6px, #c2185b 10px, transparent 10px); background-size: 45px 35px; background-repeat: repeat-y; background-clip: padding-box; }
+.hero-img { width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover; }
+.features { display: flex; gap: 25px; margin-top: 40px; }
+.feature-item { display: flex; align-items: flex-start; gap: 12px; }
+.feature-icon { font-size: 24px; background-color: #fce4ec; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.feature-item strong { display: block; color: #880e4f; font-size: 15px; }
+.feature-item p { font-size: 13px; color: #9e8e8e; margin: 0; }
+
+/* KATALOG */
+.section-title { font-family: 'Playfair Dissplay', serif; color: #880e4f; margin-bottom: 25px; font-size: 32px; }
+.category-section { margin-top: 50px; }
+.category-title { font-family: 'Playfair Display', serif; font-size: 26px; color: #880e4f; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #fce4ec; display: inline-block; }
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+.card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px; }
+.product-card { text-align: center; transition: transform 0.3s; }
+.product-card:hover { transform: translateY(-5px); }
+.product-img { width: 100%; height: 350px; border-radius: 12px; margin-bottom: 15px; overflow: hidden; background-color: #fff5f8; }
+.product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+.product-card:hover .product-img img { transform: scale(1.05); }
+.product-card h3 { font-family: 'Playfair Display', serif; margin-bottom: 5px; color: #880e4f; font-size: 18px; border: none; padding: 0; }
+.product-price { font-weight: bold; color: #c2185b; margin-bottom: 15px; display: block; font-size: 15px; }
+
+/* CUSTOM BOUQUET */
+.custom-bouquet-section { margin-top: 70px; }
+.custom-banner { background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%); padding: 40px; border-radius: 15px; text-align: center; margin-bottom: 25px; border: 2px dashed #c2185b; }
+.custom-banner h2 { font-family: 'Playfair Display', serif; color: #880e4f; font-size: 32px; margin-bottom: 10px; }
+.custom-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+.custom-note { font-size: 12px; color: #888; text-align: center; margin-top: 10px; }
+
+/* PEMESANAN */
+.checkout-layout { display: flex; gap: 30px; }
+.form-col { flex: 2; }
+.summary-col { flex: 1; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #555; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #fce4ec; border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 14px; }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: #c2185b; box-shadow: 0 0 5px rgba(194, 24, 91, 0.2); }
+.addon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.addon-grid label { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; font-weight: 400; padding: 8px; border: 1px solid #fce4ec; border-radius: 6px; transition: 0.2s; }
+.addon-grid label:hover { background-color: #fff5f8; }
+.addon-grid input, .addon-grid select { width: auto; accent-color: #c2185b; }
+.addon-price { color: #c2185b; font-weight: 600; margin-left: auto; font-size: 12px; }
+.payment-option { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-weight: 500; font-size: 14px; }
+.payment-option input { width: auto; accent-color: #c2185b; }
+.summary-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+.summary-total { display: flex; justify-content: space-between; font-size: 20px; font-weight: bold; color: #c2185b; border-top: 2px solid #fce4ec; padding-top: 15px; margin-top: 15px; }
+.payment-info-box { background-color: #fff5f8; padding: 20px; border-radius: 8px; border-left: 5px solid #c2185b; margin-bottom: 20px; }
+
+/* Style untuk Upload Bukti & Status COD */
+.upload-area { border: 2px dashed #fce4ec; padding: 20px; border-radius: 10px; text-align: center; background-color: #fffbfc; margin-bottom: 20px; }
+.upload-area p { font-size: 13px; color: #888; margin-bottom: 10px; }
+.cod-status { background-color: #fff3e0; padding: 20px; border-radius: 8px; text-align: center; color: #e65100; font-weight: 600; margin-top: 20px; border: 1px solid #ffe0b2; }
+.cod-status.ready { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+.timer-display { font-size: 24px; font-weight: bold; letter-spacing: 2px; color: #c2185b; display: block; margin-top: 5px; }
+
+/* SUKSES */
+.success-box { text-align: center; max-width: 600px; margin: 0 auto; }
+.success-icon { font-size: 80px; margin-bottom: 20px; }
+.success-box h1 { color: #2dc653; margin-bottom: 10px; }
+.success-box p { color: #666; margin-bottom: 25px; }
+.order-detail-box { text-align: left; background: #fff5f8; padding: 25px; border-radius: 12px; margin-bottom: 30px; }
+.order-detail-box p { margin-bottom: 8px; color: #333; font-size: 14px; }
+
+@media (max-width: 900px) { .product-grid { grid-template-columns: repeat(2, 1fr); } .addon-grid, .custom-form-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .hero { flex-direction: column; text-align: center; } .hero-text h1 { font-size: 32px; } .features { flex-direction: column; align-items: center; } .checkout-layout { flex-direction: column; } .product-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body class="beranda-active">
+
+    <nav class="navbar">
+        <div class="logo">⋆.°💐༘⋆˚˖𓍢ִ໋FredoOo Blooms͙֒✧˚.🎀༘⋆</div>
+        <div class="nav-links">
+            <button onclick="showPage('beranda')">Beranda</button>
+            <button onclick="showPage('produk')">Produk</button>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- HALAMAN 1: BERANDA -->
+        <div id="beranda" class="page active">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Beautiful bouquete for a beautiful soul.🎁💐</h1>
+                    <p>Rangkaian bunga segar terbaik untuk menyempurnakan momen bahagiamu. Diantar dengan penuh cinta dan tanpa biaya pengiriman!!</p>
+                    <button class="btn-primary" onclick="showPage('produk')">MASUK / MULAI</button>
+                    <div class="features">
+                        <div class="feature-item"><span class="feature-icon">🌸</span><div><strong>Bunga Segar</strong><p>Dipetik langsung dari kebun</p></div></div>
+                        <div class="feature-item"><span class="feature-icon">🎨</span><div><strong>Desain Eksklusif</strong><p>Rangkai sesuai permintaanmu</p></div></div>
+                        <div class="feature-item"><span class="feature-icon">🚚</span><div><strong>Gratis Ongkir</strong><p>Pengiriman cepat & aman</p></div></div>
+                    </div>
+                </div>
+                <div class="hero-image"><div class="spiral-frame"><img src="d:\zhaina\PROJECT AKHIR SMT 2\bunga beranda.jpeg" alt="Buket Bunga Cantik" class="hero-img"></div></div>
+            </div>
+        </div>
+
+        <!-- HALAMAN 2: PRODUK -->
+        <div id="produk" class="page">
+            <h2 class="section-title">Produk Kami</h2>
+
+            <div class="category-section">
+                <h3 class="category-title">˚˖𓍢ִ໋🌷͙֒✧Artificial Flower˚.🎀༘⋆</h3>
+                <div class="product-grid">
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\bunga artificial 1.jpeg" alt="A1"></div><h3>Blue Calm Bouquet</h3><span class="product-price">Rp 125.000</span><button class="btn-primary" onclick="pesanProduk('Blue Calm Bouquet', 125000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\bunga artificial 2.jpeg" alt="A2"></div><h3>Purple Velvet Bloom</h3><span class="product-price">Rp 135.000</span><button class="btn-primary" onclick="pesanProduk('Purple Velvet Bloom', 135000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\bunga artificial 3.jpeg" alt="A3"></div><h3>Sweet Pink Bouquet</h3><span class="product-price">Rp 120.000</span><button class="btn-primary" onclick="pesanProduk('Sweet Pink Bouquet', 120000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\bunga artificial 4.jpeg" alt="A4"></div><h3>Lilac Serenity</h3><span class="product-price">Rp 130.000</span><button class="btn-primary" onclick="pesanProduk('Lilac Serenity', 130000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\bunga artificial 5.jpeg" alt="A5"></div><h3>Pearl Petals</h3><span class="product-price">Rp 115.000</span><button class="btn-primary" onclick="pesanProduk('Pearl Petals', 115000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\bunga artificial 6.jpeg" alt="A6"></div><h3>Starlight Lavender</h3><span class="product-price">Rp 140.000</span><button class="btn-primary" onclick="pesanProduk('Starlight Lavender', 140000)">Pesan</button></div>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h3 class="category-title">˚˖𓍢ִ໋🌷͙֒✧Fresh Flower˚.🎀༘⋆</h3>
+                <div class="product-grid">
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\fresh flower 1.jpeg" alt="F1"></div><h3>Dewy Blossom</h3><span class="product-price">Rp 75.000</span><button class="btn-primary" onclick="pesanProduk('Dewy Blossom', 75000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\fresh flower 2.jpeg" alt="F2"></div><h3>Morning Petals</h3><span class="product-price">Rp 70.000</span><button class="btn-primary" onclick="pesanProduk('Morning Petals', 70000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\fresh flower 3.jpeg" alt="F3"></div><h3>Ribbon Bloom</h3><span class="product-price">Rp 65.000</span><button class="btn-primary" onclick="pesanProduk('Ribbon Bloom', 65000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\fresh flower 4.jpeg" alt="F4"></div><h3>Mix Garden</h3><span class="product-price">Rp 80.000</span><button class="btn-primary" onclick="pesanProduk('Mix Garden', 80000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\fresh flower 5.jpeg" alt="F5"></div><h3>Blooming Wishes</h3><span class="product-price">Rp 75.000</span><button class="btn-primary" onclick="pesanProduk('Blooming Wishes', 75000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\fresh flower 6.jpeg" alt="F6"></div><h3>Daisy Dream</h3><span class="product-price">Rp 80.000</span><button class="btn-primary" onclick="pesanProduk('Daisy Dream', 80000)">Pesan</button></div>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h3 class="category-title">˚˖𓍢ִ໋🌷͙֒✧Puffy Flower˚.🎀༘⋆</h3>
+                <div class="product-grid">
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\kawat bulu 1.jpeg" alt="K1"></div><h3>Puffy Sun</h3><span class="product-price">Rp 85.000</span><button class="btn-primary" onclick="pesanProduk('Puffy Sun', 85000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\kawat bulu 2.jpeg" alt="K2"></div><h3>Cherry Puff</h3><span class="product-price">Rp 95.000</span><button class="btn-primary" onclick="pesanProduk('Cherry Puff', 95000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\kawat bulu 3.jpeg" alt="K3"></div><h3>Cotton Candy Bloom</h3><span class="product-price">Rp 95.000</span><button class="btn-primary" onclick="pesanProduk('Cotton Candy Bloom', 95000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\kawat bulu 4.jpeg" alt="K4"></div><h3>Amethyst Moon</h3><span class="product-price">Rp 110.000</span><button class="btn-primary" onclick="pesanProduk('Amethyst Moon', 110000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\kawat bulu 5.jpeg" alt="K5"></div><h3>Sky Fluff</h3><span class="product-price">Rp 105.000</span><button class="btn-primary" onclick="pesanProduk('Sky Fluff', 105000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\kawat bulu 6.jpeg" alt="K6"></div><h3>Rainbow Candy Bloom</h3><span class="product-price">Rp 125.000</span><button class="btn-primary" onclick="pesanProduk('Rainbow Candy Bloom', 125000)">Pesan</button></div>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h3 class="category-title">˚˖𓍢ִ໋🌷͙֒✧Luxe Flower˚.🎀༘⋆</h3>
+                <div class="product-grid">
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\Satin 1.jpeg" alt="S1"></div><h3>Midnight Sapphire</h3><span class="product-price">Rp 135.000</span><button class="btn-primary" onclick="pesanProduk('Midnight Sapphire', 135000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\Satin 2.jpeg" alt="S2"></div><h3>Eclipse Noir</h3><span class="product-price">Rp 150.000</span><button class="btn-primary" onclick="pesanProduk('Eclipse Noir', 150000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\Satin 3.jpeg" alt="S3"></div><h3>Blush Royal</h3><span class="product-price">Rp 130.000</span><button class="btn-primary" onclick="pesanProduk('Blush Royal', 130000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\Satin 4.jpeg" alt="S4"></div><h3>Ruby Crimson</h3><span class="product-price">Rp 140.000</span><button class="btn-primary" onclick="pesanProduk('Ruby Crimson', 140000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\Satin 5.jpeg" alt="S5"></div><h3>Cloud Velvet Bloom</h3><span class="product-price">Rp 150.000</span><button class="btn-primary" onclick="pesanProduk('Cloud Velvet Bloom', 150000)">Pesan</button></div>
+                    <div class="card product-card"><div class="product-img"><img src="d:\zhaina\PROJECT AKHIR SMT 2\Satin 6.jpeg" alt="S6"></div><h3>Forest Emerald Blossom</h3><span class="product-price">Rp 155.000</span><button class="btn-primary" onclick="pesanProduk('Forest Emerald Blossom', 155000)">Pesan</button></div>
+                </div>
+            </div>
+
+            <div class="custom-bouquet-section">
+                <div class="custom-banner">
+                    <h2>Create Your Bouquet Here ✨</h2>
+                    <p>Kebebasan penuh buat kamu! Isi kategori di bawah sesuai imajinasimu, dan kami akan wujudkan.</p>
+                </div>
+                <div class="card custom-form-card">
+                    <div class="custom-form-grid">
+                        <div class="form-group"><label>Jenis Bunga Utama</label><input type="text" id="custom-bunga" placeholder="Contoh: Mawar Colombia, Lily Putih..."></div>
+                        <div class="form-group"><label>Warna Bunga</label><input type="text" id="custom-warna" placeholder="Contoh: Merah maroon, Pink soft..."></div>
+                        <div class="form-group"><label>Jumlah Tangkai</label><input type="text" id="custom-tangkai" placeholder="Contoh: 12 tangkai, 24 tangkai..."></div>
+                        <div class="form-group"><label>Jenis Kertas / Wrapper</label><input type="text" id="custom-kertas" placeholder="Contoh: Kertas tisu pink, Kraft..."></div>
+                        <div class="form-group"><label>Dekorasi (Pita/Ornamen)</label><input type="text" id="custom-dekorasi" placeholder="Contoh: Pita satin emas, LED..."></div>
+                        <div class="form-group"><label>Catatan Khusus Lainnya</label><input type="text" id="custom-catatan" placeholder="Contoh: Masukin balon angka 17..."></div>
+                    </div>
+                    <button class="btn-primary" style="width:100%; margin-top:10px;" onclick="pesanCustom()">Pesan Custom Bouquet</button>
+                    <!-- DP SUDAH DIGANTI JADI 50.000 DI SINI -->
+                    <p class="custom-note">*Harga dasar Rp 50.000 (DP). Total harga final akan dikonfirmasi CS via WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HALAMAN 3: PEMESANAN -->
+        <div id="pemesanan" class="page">
+            <h2 class="section-title">Pemesanan</h2>
+            <div class="checkout-layout">
+                <div class="form-col">
+                    <div class="card">
+                        <h3 style="font-family:'Playfair Display';color:#880e4f;border-bottom:2px solid #fce4ec;padding-bottom:8px;margin-bottom:15px;">1. Pesanan Kamu</h3>
+                        <div class="form-group"><label>Produk</label><input type="text" id="produk-nama" readonly style="background-color: #f9f9f9;"></div>
+                    </div>
+                    <div class="card">
+                        <h3 style="font-family:'Playfair Display';color:#880e4f;border-bottom:2px solid #fce4ec;padding-bottom:8px;margin-bottom:15px;">2. Dekorasi Tambahan</h3>
+                        <div class="addon-grid">
+                            <label><input type="checkbox" class="addon-check" data-name="Pita Satin" data-price="15000"> Pita Satin <span class="addon-price">+15k</span></label>
+                            <label><input type="checkbox" class="addon-check" data-name="Pita Rantai Emas" data-price="25000"> Pita Rantai Emas <span class="addon-price">+25k</span></label>
+                            <label><input type="checkbox" class="addon-check" data-name="Ornamen Kupu-kupu" data-price="10000"> Ornamen Kupu-kupu <span class="addon-price">+10k</span></label>
+                            <label><input type="checkbox" class="addon-check" data-name="Ornamen Pearl" data-price="20000"> Ornamen Pearl/Payet <span class="addon-price">+20k</span></label>
+                            <label><input type="checkbox" class="addon-check" data-name="Kartu Ucapan" data-price="5000"> Kartu Ucapan (Tulisan) <span class="addon-price">+5k</span></label>
+                            <label><input type="checkbox" class="addon-check" data-name="Balon Huruf/Angka" data-price="30000"> Balon Huruf/Angka <span class="addon-price">+30k</span></label>
+                            <label><input type="checkbox" class="addon-check" data-name="LED Light" data-price="25000"> LED Light <span class="addon-price">+25k</span></label>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 style="font-family:'Playfair Display';color:#880e4f;border-bottom:2px solid #fce4ec;padding-bottom:8px;margin-bottom:15px;">3. Kemasan Pengiriman</h3>
+                        <div class="payment-option"><input type="radio" name="kemasan" value="Plastik Wrapping" data-price="0" checked><label>Plastik Wrapping (Gratis)</label></div>
+                        <div class="payment-option"><input type="radio" name="kemasan" value="Box Mewah" data-price="35000"><label>Box Mewah (+35k)</label></div>
+                        <div class="payment-option"><input type="radio" name="kemasan" value="Totebag Kertas" data-price="25000"><label>Totebag Kertas (+25k)</label></div>
+                        <div class="payment-option"><input type="radio" name="kemasan" value="Totebag Plastik" data-price="15000"><label>Totebag Plastik (+15k)</label></div>
+                    </div>
+                    <div class="card">
+                        <h3 style="font-family:'Playfair Display';color:#880e4f;border-bottom:2px solid #fce4ec;padding-bottom:8px;margin-bottom:15px;">4. Alamat Pengiriman</h3>
+                        <div class="form-group"><label>Nama Penerima</label><input type="text" id="nama" required></div>
+                        <div class="form-group"><label>No. Telepon</label><input type="tel" id="telepon" required></div>
+                        <div class="form-group"><label>Alamat Lengkap</label><textarea id="alamat" rows="3" required></textarea></div>
+                    </div>
+                    <div class="card">
+                        <h3 style="font-family:'Playfair Display';color:#880e4f;border-bottom:2px solid #fce4ec;padding-bottom:8px;margin-bottom:15px;">5. Pengiriman & Pembayaran</h3>
+                        <label style="font-weight:600; margin-bottom:10px; display:block;">Pengiriman:</label>
+                        <div class="payment-option"><input type="radio" name="pengiriman" value="Diantar (Gratis Ongkir)" checked><label>Diantar (Gratis Ongkir)</label></div>
+                        <div class="payment-option"><input type="radio" name="pengiriman" value="Ambil Langsung di Toko"><label>Ambil Langsung di Toko</label></div>
+                        <label style="font-weight:600; margin-top:20px; margin-bottom:10px; display:block;">Pembayaran:</label>
+                        <div class="payment-option"><input type="radio" name="payment" value="Transfer Bank" checked><label>Transfer Bank</label></div>
+                        <div class="payment-option"><input type="radio" name="payment" value="E-Wallet"><label>E-Wallet</label></div>
+                        <div class="payment-option"><input type="radio" name="payment" value="COD (Bayar di Tempat)"><label>COD (Bayar di Tempat)</label></div>
+                    </div>
+                </div>
+                <div class="summary-col">
+                    <div class="card summary-card" style="position:sticky;top:100px;">
+                        <h3 style="font-family:'Playfair Display';color:#880e4f;border-bottom:2px solid #fce4ec;padding-bottom:8px;margin-bottom:15px;">Ringkasan</h3>
+                        <div class="summary-item"><span id="summary-produk">-</span><span id="summary-harga">Rp 0</span></div>
+                        <div class="summary-item"><span>Dekorasi</span><span id="summary-dekorasi">Rp 0</span></div>
+                        <div class="summary-item"><span>Kemasan</span><span id="summary-kemasan">Rp 0</span></div>
+                        <div class="summary-item"><span>Pengiriman</span><span>Gratis</span></div>
+                        <div class="summary-total"><span>Total</span><span id="summary-total">Rp 0</span></div>
+                        <button class="btn-primary" style="width:100%;margin-top:20px;" onclick="lanjutPembayaran()">Lanjut Pembayaran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HALAMAN 4: PEMBAYARAN -->
+        <div id="pembayaran" class="page">
+            <h2 class="section-title">Pembayaran</h2>
+            <div class="checkout-layout">
+                <div class="form-col">
+                    <div class="card">
+                        <h3 style="font-family:'Playfair Display';color:#880e4f;border-bottom:2px solid #fce4ec;padding-bottom:8px;margin-bottom:15px;">Instruksi Pembayaran</h3>
+                        <div class="payment-info-box">
+                            <h4 id="pay-method" style="color:#c2185b;">Pembayaran: </h4>
+                            <p id="pay-kirim-info" style="font-size:14px;color:#666;margin-top:5px;"></p>
+                            <p id="pay-custom-note" style="font-size:13px;color:#c2185b;margin-top:10px;display:none;"><strong>*Pesanan Custom:</strong> Harga di web adalah DP. Total final akan dikonfirmasi via WhatsApp.</p>
+                        </div>
+                        <div id="transfer-section" class="upload-area">
+                            <p>📸 Silakan upload bukti transfer/pembayaran kamu di sini:</p>
+                            <input type="file" id="bukti-transfer" accept="image/*" style="margin:auto; border:none;">
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-col">
+                    <div class="card summary-card">
+                        <h3 style="font-family:'Playfair Display';color:#880e4f;border-bottom:2px solid #fce4ec;padding-bottom:8px;margin-bottom:15px;">Detail Pesanan</h3>
+                        <div class="summary-item"><span>Produk</span><span id="pay-produk">-</span></div>
+                        <div class="summary-item"><span>Dekorasi</span><span id="pay-dekorasi" style="text-align:right;font-size:12px;">-</span></div>
+                        <div class="summary-item"><span>Kemasan</span><span id="pay-kemasan">-</span></div>
+                        <div class="summary-item"><span>Atas Nama</span><span id="pay-nama">-</span></div>
+                        <div class="summary-item"><span>Pengiriman</span><span id="pay-kirim">-</span></div>
+                        <div class="summary-item"><span>Alamat</span><span id="pay-alamat" style="text-align:right;font-size:12px;">-</span></div>
+                        <div class="summary-total"><span>Total Bayar</span><span id="pay-total">Rp 0</span></div>
+                        
+                        <button id="btn-transfer" class="btn-primary" style="width:100%;margin-top:20px;" onclick="konfirmasiBayar('transfer')">Saya Sudah Bayar</button>
+                        
+                        <!-- STATUS COD + TIMER -->
+                        <div id="cod-status" class="cod-status" style="display:none;">
+                            <div id="cod-processing">
+                                🔄 Pesanan Sedang Diproses<br>
+                                <span style="font-size: 13px; font-weight: 400; color: #888;">Estimasi selesai dalam:</span><br>
+                                <span id="cod-timer" class="timer-display">02:00:00</span>
+                            </div>
+                            <div id="cod-ready" style="display:none;">
+                                ✅ Pesanan Siap!<br>
+                                <span style="font-size: 14px; font-weight: 400; color: #2e7d32;">Silakan siap-siap untuk mengambil/menerima buket Anda.</span>
+                            </div>
+                            <button class="btn-primary" style="margin-top:15px; background-color:#2e7d32;" onclick="konfirmasiBayar('cod')">Selesai</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HALAMAN 5: SUKSES -->
+        <div id="sukses" class="page">
+            <div class="card success-box">
+                <div class="success-icon">✅</div>
+                <h1 id="sukses-title" style="color:#2dc653;">Pesanan Berhasil!</h1>
+                <p id="sukses-desc" style="color:#666;margin-bottom:25px;">Terima kasih telah berbelanja di FredoOo Blooms.</p>
+                <div class="order-detail-box">
+                    <p><strong>Produk:</strong> <span id="s-produk">-</span></p>
+                    <p><strong>Dekorasi:</strong> <span id="s-dekorasi">-</span></p>
+                    <p><strong>Kemasan:</strong> <span id="s-kemasan">-</span></p>
+                    <p><strong>Pengiriman:</strong> <span id="s-kirim">-</span></p>
+                    <p><strong>Alamat:</strong> <span id="s-alamat">-</span></p>
+                    <p><strong>Pembayaran:</strong> <span id="s-bayar">-</span></p>
+                    <hr style="margin:15px 0;border:0;border-top:1px dashed #ccc;">
+                    <p style="font-size:20px;font-weight:bold;color:#c2185b;">Total: <span id="s-total">Rp 0</span></p>
+                    <p id="s-custom-note" style="font-size:13px;color:#888;margin-top:10px;display:none;">*Untuk pesanan custom, total final mungkin berubah dan akan dikonfirmasi admin via WhatsApp.</p>
+                </div>
+                <button class="btn-primary" onclick="showPage('beranda')">Kembali ke Beranda</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        let dataPesanan = {};
+        let dataCheckout = {};
+        let codTimerInterval;
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+            document.body.classList.toggle('beranda-active', pageId === 'beranda');
+        }
+
+        function pesanProduk(nama, harga) {
+            dataPesanan = { nama: nama, harga: harga, isCustom: false };
+            document.getElementById('produk-nama').value = nama;
+            resetAddons();
+            hitungTotal();
+            showPage('pemesanan');
+        }
+
+        function pesanCustom() {
+            let bunga = document.getElementById('custom-bunga').value;
+            let warna = document.getElementById('custom-warna').value;
+            let tangkai = document.getElementById('custom-tangkai').value;
+            let kertas = document.getElementById('custom-kertas').value;
+            let dekorasi = document.getElementById('custom-dekorasi').value;
+            let catatan = document.getElementById('custom-catatan').value;
+
+            if(!bunga && !warna && !tangkai && !kertas && !dekorasi) { alert("Isi dulu dong minimal 1 kategori buket impianmu! 😊"); return; }
+
+            let namaProduk = `Custom (Bunga: ${bunga || '-'}, Warna: ${warna || '-'}, Tangkai: ${tangkai || '-'})`;
+            
+            // HARGA DP SUDAH DIGANTI JADI 50000 DI SINI
+            let hargaDasar = 50000; 
+            
+            dataPesanan = { nama: namaProduk, harga: hargaDasar, isCustom: true };
+            document.getElementById('produk-nama').value = namaProduk;
+            resetAddons();
+            hitungTotal();
+            showPage('pemesanan');
+        }
+
+        function resetAddons() {
+            document.querySelectorAll('.addon-check').forEach(el => el.checked = false);
+            document.querySelector('input[name="kemasan"][data-price="0"]').checked = true;
+            localStorage.removeItem('codReadyTime');
+            clearInterval(codTimerInterval);
+        }
+
+        function hitungTotal() {
+            let hargaDekorasi = 0; let dekorasiNames = [];
+            document.querySelectorAll('.addon-check:checked').forEach(el => { hargaDekorasi += parseInt(el.getAttribute('data-price')); dekorasiNames.push(el.getAttribute('data-name')); });
+            let kemasanSelected = document.querySelector('input[name="kemasan"]:checked');
+            let hargaKemasan = parseInt(kemasanSelected.getAttribute('data-price')); let kemasanName = kemasanSelected.value;
+            let total = dataPesanan.harga + hargaDekorasi + hargaKemasan;
+            document.getElementById('summary-produk').innerText = dataPesanan.nama;
+            document.getElementById('summary-harga').innerText = "Rp " + dataPesanan.harga.toLocaleString('id-ID');
+            document.getElementById('summary-dekorasi').innerText = dekorasiNames.length > 0 ? "Rp " + hargaDekorasi.toLocaleString('id-ID') : "Rp 0";
+            document.getElementById('summary-kemasan').innerText = kemasanName + (hargaKemasan > 0 ? " (+Rp " + hargaKemasan.toLocaleString('id-ID') + ")" : "");
+            document.getElementById('summary-total').innerText = "Rp " + total.toLocaleString('id-ID');
+        }
+        document.querySelectorAll('.addon-check, input[name="kemasan"]').forEach(el => { el.addEventListener('change', hitungTotal); });
+
+        function lanjutPembayaran() {
+            let nama = document.getElementById('nama').value; let alamat = document.getElementById('alamat').value;
+            let pengiriman = document.querySelector('input[name="pengiriman"]:checked').value; let pembayaran = document.querySelector('input[name="payment"]:checked').value;
+            if(nama === "" || alamat === "") { alert("Mohon lengkapi alamat!"); return; }
+
+            let dekorasiNames = []; document.querySelectorAll('.addon-check:checked').forEach(el => dekorasiNames.push(el.getAttribute('data-name')));
+            let kemasanSelected = document.querySelector('input[name="kemasan"]:checked');
+            let hargaDekorasi = 0; document.querySelectorAll('.addon-check:checked').forEach(el => hargaDekorasi += parseInt(el.getAttribute('data-price')));
+            let hargaKemasan = parseInt(kemasanSelected.getAttribute('data-price'));
+            dataCheckout = {
+                produk: dataPesanan.nama, dekorasi: dekorasiNames.length > 0 ? dekorasiNames.join(', ') : "Tidak ada",
+                kemasan: kemasanSelected.value, total: dataPesanan.harga + hargaDekorasi + hargaKemasan,
+                nama: nama, alamat: alamat, pengiriman: pengiriman, pembayaran: pembayaran, isCustom: dataPesanan.isCustom
+            };
+
+            document.getElementById('pay-method').innerText = "Pembayaran: " + dataCheckout.pembayaran;
+            document.getElementById('pay-kirim-info').innerText = "Pengiriman: " + dataCheckout.pengiriman;
+            document.getElementById('pay-produk').innerText = dataCheckout.produk;
+            document.getElementById('pay-dekorasi').innerText = dataCheckout.dekorasi;
+            document.getElementById('pay-kemasan').innerText = dataCheckout.kemasan;
+            document.getElementById('pay-nama').innerText = dataCheckout.nama;
+            document.getElementById('pay-kirim').innerText = dataCheckout.pengiriman;
+            document.getElementById('pay-alamat').innerText = dataCheckout.pengiriman.includes("Ambil") ? "Ambil di Toko" : dataCheckout.alamat;
+            document.getElementById('pay-total').innerText = "Rp " + dataCheckout.total.toLocaleString('id-ID');
+            document.getElementById('pay-custom-note').style.display = dataCheckout.isCustom ? 'block' : 'none';
+
+            let isCOD = dataCheckout.pembayaran === "COD (Bayar di Tempat)";
+            if(isCOD) {
+                document.getElementById('transfer-section').style.display = 'none';
+                document.getElementById('btn-transfer').style.display = 'none';
+                document.getElementById('cod-status').style.display = 'block';
+                startCODTimer();
+            } else {
+                document.getElementById('transfer-section').style.display = 'block';
+                document.getElementById('btn-transfer').style.display = 'block';
+                document.getElementById('cod-status').style.display = 'none';
+                clearInterval(codTimerInterval);
+            }
+            showPage('pembayaran');
+        }
+
+        function startCODTimer() {
+            const TWO_HOURS_MS = 2 * 60 * 60 * 1000;
+            let targetTime = localStorage.getItem('codReadyTime');
+
+            if (!targetTime) {
+                targetTime = Date.now() + TWO_HOURS_MS;
+                localStorage.setItem('codReadyTime', targetTime);
+            }
+
+            clearInterval(codTimerInterval);
+            document.getElementById('cod-processing').style.display = 'block';
+            document.getElementById('cod-ready').style.display = 'none';
+            document.getElementById('cod-status').classList.remove('ready');
+
+            codTimerInterval = setInterval(() => {
+                const now = Date.now();
+                const remaining = targetTime - now;
+
+                if (remaining <= 0) {
+                    clearInterval(codTimerInterval);
+                    document.getElementById('cod-processing').style.display = 'none';
+                    document.getElementById('cod-ready').style.display = 'block';
+                    document.getElementById('cod-status').classList.add('ready');
+                    localStorage.removeItem('codReadyTime');
+                } else {
+                    const h = Math.floor(remaining / (1000 * 60 * 60));
+                    const m = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+                    const s = Math.floor((remaining % (1000 * 60)) / 1000);
+                    document.getElementById('cod-timer').innerText = 
+                        `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+                }
+            }, 1000);
+        }
+
+        function konfirmasiBayar(type) {
+            if(type === 'transfer') {
+                let fileInput = document.getElementById('bukti-transfer');
+                if(fileInput.files.length === 0) { alert("Mohon upload bukti pembayaran terlebih dahulu!"); return; }
+            }
+
+            document.getElementById('s-produk').innerText = dataCheckout.produk;
+            document.getElementById('s-dekorasi').innerText = dataCheckout.dekorasi;
+            document.getElementById('s-kemasan').innerText = dataCheckout.kemasan;
+            document.getElementById('s-kirim').innerText = dataCheckout.pengiriman;
+            document.getElementById('s-alamat').innerText = dataCheckout.pengiriman.includes("Ambil") ? "Ambil di Toko" : dataCheckout.alamat;
+            document.getElementById('s-bayar').innerText = dataCheckout.pembayaran;
+            document.getElementById('s-total').innerText = "Rp " + dataCheckout.total.toLocaleString('id-ID');
+            document.getElementById('s-custom-note').style.display = dataCheckout.isCustom ? 'block' : 'none';
+            
+            if(type === 'transfer') {
+                document.getElementById('sukses-title').innerText = "Pembayaran Diterima!";
+                document.getElementById('sukses-desc').innerText = "Terima kasih! Buketmu sedang kami siapkan.";
+            } else {
+                document.getElementById('sukses-title').innerText = "Pesanan Sedang Diproses!";
+                document.getElementById('sukses-desc').innerText = "Buketmu sedang dirangkai. Mohon tunggu timer selesai ya!";
+            }
+
+            localStorage.removeItem('codReadyTime');
+            clearInterval(codTimerInterval);
+            showPage('sukses');
+        }
+    </script>
+</body>
+</html>
